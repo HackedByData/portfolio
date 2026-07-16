@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* Tokens whose value is another CSS var must be @theme inline. */
+@theme inline {
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+@theme {
+  /* palette (spec §5) */
+  --color-bg: #0a0e0f;
+  --color-panel: #0e1512;
+  --color-signal: #00ff9c;
+  --color-phosphor: #63b891; /* dim phosphor green, secondary text */
+  --color-body: #e6edea; /* off-white body copy */
+  --color-amber: #ffb000; /* used at most twice on the page */
+  --color-grid-line: rgba(0, 255, 156, 0.07);
+
+  /* motion */
+  --animate-blink: blink 1.1s step-end infinite;
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+}
+
+/* ---------- textures ---------- */
+
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.55) 3px
+  );
+  opacity: 0.14;
+}
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ---------- panel with corner brackets ---------- */
+
+.panel-brackets {
+  position: relative;
+  background: color-mix(in oklab, var(--color-panel) 82%, transparent);
+  border: 1px solid rgba(0, 255, 156, 0.18);
+}
+.panel-brackets::before,
+.panel-brackets::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-signal);
+  border-style: solid;
+}
+.panel-brackets::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.panel-brackets::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ---------- blinking cursor ---------- */
+
+.cursor-blink::after {
+  content: "█";
+  margin-left: 0.15em;
+  color: var(--color-signal);
+  animation: var(--animate-blink);
+}
+
+/* ---------- scroll reveal (Reveal.tsx toggles .is-revealed) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal .reveal-item {
+    opacity: 0;
+  }
+  .reveal.is-revealed .reveal-item {
+    animation: var(--animate-fade-up);
+  }
+
+  /* typed-in headings: element sets --type-ch to its own character count */
+  .reveal .reveal-type {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    vertical-align: bottom;
+  }
+  .reveal.is-revealed .reveal-type {
+    animation: typing 0.9s steps(24, end) forwards;
+  }
+  @keyframes typing {
+    from {
+      max-width: 0;
+    }
+    to {
+      max-width: var(--type-ch, 30ch);
+    }
+  }
+
+  /* diagnostics bars: element sets --fill (0-100%) */
+  .reveal .bar-fill {
+    width: 0;
+  }
+  .reveal.is-revealed .bar-fill {
+    animation: bar-fill 1s ease-out forwards;
+  }
+  @keyframes bar-fill {
+    to {
+      width: var(--fill, 100%);
+    }
+  }
+}
+
+/* reduced motion: everything visible, bars full, no animation */
+@media (prefers-reduced-motion: reduce) {
+  .bar-fill {
+    width: var(--fill, 100%);
+  }
+  .cursor-blink::after {
+    animation: none;
+  }
+  .scanlines {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 5rem;
+}
