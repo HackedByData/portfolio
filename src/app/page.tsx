@@ -1,28 +1,15 @@
 import BootOverlay from "@/components/BootOverlay";
 import Nav from "@/components/Nav";
-import Panel from "@/components/Panel";
-import Reveal from "@/components/Reveal";
-import SectionHeader from "@/components/SectionHeader";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <>
       <BootOverlay />
       <Nav />
-      <main id="top" className="mx-auto max-w-5xl px-4 py-24 space-y-[60vh]">
-      <Reveal as="section">
-        <SectionHeader index="00" title="SMOKE TEST" />
-        <Panel title="PANEL TEST">
-          <p className="reveal-item">bracketed panel renders</p>
-        </Panel>
-      </Reveal>
-      <Reveal as="section">
-        <SectionHeader index="01" title="SECOND SECTION" />
-        <Panel>
-          <p className="reveal-item">scrolling reveals this late</p>
-        </Panel>
-      </Reveal>
-    </main>
+      <main id="top">
+        <Hero />
+      </main>
     </>
   );
 }
