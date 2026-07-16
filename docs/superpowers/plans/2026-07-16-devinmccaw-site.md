@@ -90,6 +90,9 @@ The template `.gitignore` already ignores `.env*` and Next.js outputs. Append ou
 DevinMcCawResumeSS26.pdf
 *.jpg
 !public/**/*.jpg
+
+# sdd scratch
+.superpowers/
 ```
 
 (`*.jpg` blocks the two UUID-named originals in the root; `!public/**/*.jpg` re-allows the committed hero copy.)
