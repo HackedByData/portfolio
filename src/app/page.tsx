@@ -1,10 +1,15 @@
+import BootOverlay from "@/components/BootOverlay";
+import Nav from "@/components/Nav";
 import Panel from "@/components/Panel";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-24 space-y-[60vh]">
+    <>
+      <BootOverlay />
+      <Nav />
+      <main id="top" className="mx-auto max-w-5xl px-4 py-24 space-y-[60vh]">
       <Reveal as="section">
         <SectionHeader index="00" title="SMOKE TEST" />
         <Panel title="PANEL TEST">
@@ -18,5 +23,6 @@ export default function Home() {
         </Panel>
       </Reveal>
     </main>
+    </>
   );
 }
