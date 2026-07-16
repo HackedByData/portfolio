@@ -66,6 +66,49 @@ body {
   background-size: 48px 48px;
 }
 
+/* ---------- cursor-reactive hero grid (HeroGrid.tsx sets --mx/--my/--dx/--dy) ---------- */
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-grid::before,
+.hero-grid::after {
+  content: "";
+  position: absolute;
+  inset: -16px; /* oversized so the drift never exposes an edge */
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: translate(var(--dx, 0px), var(--dy, 0px));
+  transition: transform 0.25s ease-out;
+}
+.hero-grid::after {
+  background-image:
+    linear-gradient(rgba(0, 255, 156, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 156, 0.3) 1px, transparent 1px);
+  opacity: 0;
+  transition:
+    transform 0.25s ease-out,
+    opacity 0.4s ease-out;
+  -webkit-mask-image: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    black 0%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    black 0%,
+    transparent 100%
+  );
+}
+.hero-grid.is-tracking::after {
+  opacity: 1;
+}
+
 /* ---------- panel with corner brackets ---------- */
 
 .panel-brackets {

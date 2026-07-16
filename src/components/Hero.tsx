@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import HeroGrid from "@/components/HeroGrid";
 
 export default function Hero() {
   return (
-    <section className="bg-blueprint border-b border-signal/10">
-      <div className="mx-auto grid max-w-5xl gap-10 px-4 pb-20 pt-16 md:grid-cols-[1fr_minmax(280px,380px)] md:items-center">
+    <section className="relative border-b border-signal/10">
+      <HeroGrid />
+      <div className="relative mx-auto grid max-w-5xl gap-10 px-4 pb-20 pt-16 md:grid-cols-[1fr_minmax(280px,380px)] md:items-center">
         <div>
           <p className="font-mono text-xs tracking-widest text-phosphor">
             CLASSIFIED // UNIT DOSSIER — CLEARED FOR PUBLIC DISCLOSURE
