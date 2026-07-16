@@ -34,13 +34,18 @@ export default function Terminal() {
       const msg = err?.message ?? "";
       const permanent =
         msg.includes("RATE_LIMITED") || msg.includes("UNIT_RESTING");
+      const sessionLimit = msg.includes("SESSION_LIMIT");
       setEntries((prev) => {
         const next = [...prev];
         const last = next[next.length - 1];
         if (last?.kind === "assistant") next.pop(); // drop the pending slot
         next.push({
           kind: "local",
-          text: permanent ? RESTING_MESSAGE : TRANSIENT_ERROR_MESSAGE,
+          text: sessionLimit
+            ? SESSION_LIMIT_MESSAGE
+            : permanent
+              ? RESTING_MESSAGE
+              : TRANSIENT_ERROR_MESSAGE,
         });
         return next;
       });
@@ -49,16 +54,15 @@ export default function Terminal() {
   });
 
   const assistantMessages = messages.filter((m) => m.role === "assistant");
-  const userCount = entries.filter((e) => e.kind === "user").length;
+  // Derived from useChat's messages (what the server validates against
+  // MAX_MESSAGES_PER_SESSION), not local entries — entries includes free
+  // easter-egg turns and resets on `clear`, which would desync the cap.
+  const userCount = messages.filter((m) => m.role === "user").length;
   const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [entries, messages]);
-
-  function print(text: string) {
-    setEntries((prev) => [...prev, { kind: "local", text }]);
-  }
 
   function submit(raw: string, chipId?: string) {
     const text = raw.trim();
