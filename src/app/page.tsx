@@ -7,6 +7,7 @@ import Modules from "@/components/Modules";
 import TrainingData from "@/components/TrainingData";
 import Changelog from "@/components/Changelog";
 import Terminal from "@/components/Terminal";
+import Uplink from "@/components/Uplink";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <TrainingData />
         <Changelog />
         <Terminal />
+        <Uplink />
       </main>
     </>
   );
