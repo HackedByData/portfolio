@@ -7,8 +7,7 @@ export const profile = {
   tagline:
     "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. Sold phones at a #1-of-802 clip before pivoting to selling the future.",
   email: "devin.mccaw@outlook.com",
-  // NOTE: confirm exact LinkedIn slug with Devin before deploy.
-  linkedin: "https://www.linkedin.com/in/devinmccaw",
+  linkedin: "https://www.linkedin.com/in/devin-mccaw",
   github: "https://github.com/hackedbydata",
   parasource: "https://www.parasource.ai",
   domain: "https://devinmccaw.com",
