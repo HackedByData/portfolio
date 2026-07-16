@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 const BOOT_LINES = [
   "> INITIALIZING DEVIN.OS v2.7 ............ OK",
@@ -15,22 +15,38 @@ const STORAGE_KEY = "devin-os-booted";
 const LINE_INTERVAL_MS = 220;
 const LINGER_MS = 600;
 
+// The "should the boot sequence play" decision depends on client-only APIs
+// (localStorage, matchMedia). useSyncExternalStore lets us read them safely:
+// getServerSnapshot() drives both the server render AND React's first
+// client render pass during hydration (so they always agree and there's no
+// mismatch), then React reconciles against the real getSnapshot() value
+// immediately after mount without us manually setState-ing inside an effect.
+function subscribe() {
+  return () => {};
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+function getClientSnapshot() {
+  const reduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const booted = localStorage.getItem(STORAGE_KEY) === "1";
+  return !reduced && !booted;
+}
+
 export default function BootOverlay() {
-  // null = undecided (SSR + first client render): render nothing.
-  const [active, setActive] = useState<boolean | null>(null);
+  const shouldBoot = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
+  const [dismissed, setDismissed] = useState(false);
   const [lineCount, setLineCount] = useState(0);
 
-  useEffect(() => {
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const booted = localStorage.getItem(STORAGE_KEY) === "1";
-    if (reduced || booted) {
-      setActive(false);
-      return;
-    }
-    setActive(true);
-  }, []);
+  const active = shouldBoot && !dismissed;
 
   useEffect(() => {
     if (!active) return;
@@ -40,12 +56,11 @@ export default function BootOverlay() {
     }
     const t = setTimeout(() => setLineCount((c) => c + 1), LINE_INTERVAL_MS);
     return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, lineCount]);
 
   function dismiss() {
     localStorage.setItem(STORAGE_KEY, "1");
-    setActive(false);
+    setDismissed(true);
   }
 
   useEffect(() => {
@@ -53,7 +68,6 @@ export default function BootOverlay() {
     const onKey = () => dismiss();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
   if (!active) return null;

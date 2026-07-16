@@ -50,6 +50,7 @@ export default async function Image() {
           border: "6px solid #00ff9c",
         }}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (Satori) requires a plain <img>; next/image is not supported here. */}
         <img
           src={photoSrc}
           alt=""
