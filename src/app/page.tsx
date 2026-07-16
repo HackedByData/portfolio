@@ -6,6 +6,7 @@ import SpecSheet from "@/components/SpecSheet";
 import Benchmarks from "@/components/Benchmarks";
 import Modules from "@/components/Modules";
 import TrainingData from "@/components/TrainingData";
+import OffDuty from "@/components/OffDuty";
 import Changelog from "@/components/Changelog";
 import Terminal from "@/components/Terminal";
 import Uplink from "@/components/Uplink";
@@ -40,6 +41,7 @@ export default function Home() {
         <Benchmarks />
         <Modules />
         <TrainingData />
+        <OffDuty />
         <Changelog />
         <Terminal />
         <Uplink />

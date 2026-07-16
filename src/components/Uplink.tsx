@@ -13,7 +13,7 @@ const channels = [
 export default function Uplink() {
   return (
     <Reveal as="section" id="uplink" className="mx-auto max-w-5xl px-4 py-20">
-      <SectionHeader index="07" title="UPLINK" />
+      <SectionHeader index="08" title="UPLINK" />
       <Panel title="OPEN CHANNELS">
         <ul className="grid gap-3 font-mono text-sm sm:grid-cols-2">
           {channels.map((c) => (

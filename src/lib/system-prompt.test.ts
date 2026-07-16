@@ -10,6 +10,11 @@ describe("buildSystemPrompt", () => {
     expect(prompt).toContain("UC Irvine");
   });
 
+  it("contains the off-duty facts", () => {
+    expect(prompt).toContain("335");
+    expect(prompt).toContain("Brazilian Jiu-Jitsu");
+  });
+
   it("contains the sales benchmarks", () => {
     expect(prompt).toContain("802");
     expect(prompt).toContain("150–200%");

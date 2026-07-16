@@ -9,7 +9,7 @@ export default function Changelog() {
       id="changelog"
       className="mx-auto max-w-5xl px-4 py-20"
     >
-      <SectionHeader index="05" title="CHANGELOG" />
+      <SectionHeader index="06" title="CHANGELOG" />
       <ol className="border-l border-signal/20 pl-6">
         {changelog.map((entry) => (
           <li key={entry.version} className="reveal-item relative pb-8">

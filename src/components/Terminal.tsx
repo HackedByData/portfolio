@@ -143,7 +143,7 @@ export default function Terminal() {
 
   return (
     <Reveal as="section" id="terminal" className="mx-auto max-w-5xl px-4 py-20">
-      <SectionHeader index="06" title="INTERROGATION TERMINAL" />
+      <SectionHeader index="07" title="INTERROGATION TERMINAL" />
 
       <div className="panel-brackets">
         <div className="flex items-center justify-between border-b border-signal/15 px-4 py-2 font-mono text-[11px] tracking-widest text-phosphor">
