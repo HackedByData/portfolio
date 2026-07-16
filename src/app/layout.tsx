@@ -21,8 +21,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(profile.domain),
   title: "Devin McCaw — Founder, Engineer, Salesman-Class Unit",
-  description:
-    "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. AI systems, sales records, and one slightly smug android interface.",
+  description: profile.ogDescription,
   alternates: { canonical: "/" },
   openGraph: {
     title: "Devin McCaw — Founder, Engineer, Salesman-Class Unit",
