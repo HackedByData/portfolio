@@ -6,6 +6,7 @@ import Benchmarks from "@/components/Benchmarks";
 import Modules from "@/components/Modules";
 import TrainingData from "@/components/TrainingData";
 import Changelog from "@/components/Changelog";
+import Terminal from "@/components/Terminal";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Modules />
         <TrainingData />
         <Changelog />
+        <Terminal />
       </main>
     </>
   );
