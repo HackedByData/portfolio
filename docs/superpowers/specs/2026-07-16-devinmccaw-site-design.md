@@ -175,8 +175,8 @@ One scrolling page; slim sticky nav with anchors styled
 - This repo (`portfolio`, GitHub remote) becomes the Next.js app.
 - Secrets: `.env.local` (gitignored) locally; Vercel dashboard env vars
   (`OPENAI_API_KEY`, `AI_MODEL`) in production. `.env.example` documents them.
-- The committed resume PDF (contains phone number) is removed from the repo as part of
-  implementation; transcript is never added.
+- The resume PDF (contains phone number) was never committed and stays untracked via
+  .gitignore rules; the transcript is never added.
 - Deploy: Vercel Git integration — push to `main` → production; PRs → preview URLs.
 - Domain: `devinmccaw.com` attached in Vercel; DNS records provided to Devin at
   deploy time.
