@@ -52,6 +52,7 @@ export default async function Image() {
       >
         <img
           src={photoSrc}
+          alt=""
           width={340}
           height={420}
           style={{
