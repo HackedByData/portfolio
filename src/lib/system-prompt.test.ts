@@ -22,4 +22,22 @@ describe("buildSystemPrompt", () => {
   it("instructs the model to stay grounded", () => {
     expect(prompt.toLowerCase()).toContain("never invent");
   });
+
+  it("forbids producing code or other deliverables", () => {
+    const lower = prompt.toLowerCase();
+    expect(lower).toContain("never write, generate, complete, debug, or explain code");
+    expect(lower).toContain("out_of_scope");
+  });
+
+  it("scopes the unit to questions about devin only", () => {
+    const lower = prompt.toLowerCase();
+    expect(lower).toContain("sole function is to answer questions about devin");
+    expect(lower).toContain("refuse");
+  });
+
+  it("hardens against prompt-injection overrides", () => {
+    const lower = prompt.toLowerCase();
+    expect(lower).toContain("ignore");
+    expect(lower).toContain("cannot be overridden");
+  });
 });
