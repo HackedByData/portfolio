@@ -60,6 +60,13 @@ export function truncateHistory<T>(messages: T[]): T[] {
   return messages.slice(-MAX_HISTORY_MESSAGES);
 }
 
+// In-memory, per-instance store. On serverless (Vercel) each concurrent or
+// cold-started instance gets its own module scope and therefore its own
+// Map, so this cap is best-effort per-instance, not a global limit across
+// the deployment — a determined caller could exceed RATE_LIMIT_MAX in
+// aggregate by landing on different instances. Acceptable for a personal
+// portfolio; making it a true global limit would need external storage
+// shared across instances (e.g. a hosted KV store).
 const defaultStore = new Map<string, { count: number; windowStart: number }>();
 
 export function checkRateLimit(

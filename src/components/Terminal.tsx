@@ -13,6 +13,7 @@ import {
   scriptedResponses,
 } from "@/data/easter-eggs";
 import { MAX_INPUT_CHARS, MAX_MESSAGES_PER_SESSION } from "@/lib/chat-guards";
+import { classifyChatError } from "@/lib/chat-errors";
 
 type Entry =
   | { kind: "user"; text: string }
@@ -30,11 +31,10 @@ export default function Terminal() {
       // Spec §9: rate-limited / keyless → scripted mode; a transient stream
       // or network error → friendly line, retry stays allowed. Our route puts
       // the cause in the JSON error body, which the transport surfaces in
-      // err.message; unknown causes are treated as transient.
-      const msg = err?.message ?? "";
-      const permanent =
-        msg.includes("RATE_LIMITED") || msg.includes("UNIT_RESTING");
-      const sessionLimit = msg.includes("SESSION_LIMIT");
+      // err.message; classifyChatError encapsulates the matching logic.
+      const { kind } = classifyChatError(err?.message ?? "");
+      const permanent = kind === "resting" || kind === "rate-limited";
+      const sessionLimit = kind === "session-limit";
       setEntries((prev) => {
         const next = [...prev];
         const last = next[next.length - 1];

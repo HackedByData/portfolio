@@ -55,9 +55,9 @@ describe("POST /api/chat guards", () => {
 
   it("returns 429 RATE_LIMITED after too many requests from one IP", async () => {
     vi.stubEnv("OPENAI_API_KEY", "test-key");
-    // Malformed bodies still consume rate budget? No — rate check runs after
-    // validation, so hammer with SESSION_LIMIT payloads (still pre-model).
-    // Use a dedicated IP so other tests aren't affected.
+    // The rate check runs before validation (see route.ts step 2 vs 3), so
+    // any parseable body — including SESSION_LIMIT payloads — consumes rate
+    // budget. Use a dedicated IP so other tests aren't affected.
     const msgs = Array.from({ length: 16 }, (_, i) => userMsg(`m${i}`));
     let last = 400;
     for (let i = 0; i < 30; i++) {

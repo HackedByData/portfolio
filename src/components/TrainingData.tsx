@@ -20,7 +20,7 @@ export default function TrainingData() {
           </Panel>
         ))}
       </div>
-      {/* one of the page's two amber moments (spec §5) */}
+      {/* amber accent — spec §5 budgets it to at most twice on the page */}
       <p className="reveal-item mt-6 font-mono text-xs tracking-wide text-amber">
         ⚠ {overclockLine}
       </p>
