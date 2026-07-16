@@ -17,6 +17,8 @@ function CountUpStat({ benchmark }: { benchmark: Benchmark }) {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    let cancelled = false;
+    let frameId: number | null = null;
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting) || started.current) return;
@@ -29,17 +31,22 @@ function CountUpStat({ benchmark }: { benchmark: Benchmark }) {
         const duration = 1200;
         const t0 = performance.now();
         const tick = (t: number) => {
+          if (cancelled) return;
           const p = Math.min(1, (t - t0) / duration);
           const eased = 1 - Math.pow(1 - p, 3);
           setValue(Math.round(benchmark.end * eased));
-          if (p < 1) requestAnimationFrame(tick);
+          if (p < 1) frameId = requestAnimationFrame(tick);
         };
-        requestAnimationFrame(tick);
+        frameId = requestAnimationFrame(tick);
       },
       { threshold: 0.4 },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      cancelled = true;
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      observer.disconnect();
+    };
   }, [benchmark.end]);
 
   return (
