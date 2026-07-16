@@ -121,7 +121,7 @@ body {
     vertical-align: bottom;
   }
   .reveal.is-revealed .reveal-type {
-    animation: typing 0.9s steps(24, end) forwards;
+    animation: typing 0.9s steps(var(--type-steps, 24), end) forwards;
   }
   @keyframes typing {
     from {
