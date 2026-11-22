@@ -10,12 +10,22 @@ export type Venture = {
 
 export const ventures: Venture[] = [
   {
+    id: "retrier",
+    name: "RETRIER.AI",
+    role: "Co-Founder & CEO",
+    description:
+      "Wins back the sales retail reps let walk. Reps log a visit in under a minute; opted-in customers get a same-day recap from Ret, the rep's AI assistant, then one offer at a time from the store's own menu. The rep takes over the close and keeps the commission. Built for franchise wireless stores, with performance-based pricing.",
+    statusLine: "PRIMARY PROCESS · now accepting pilots",
+    href: "https://retrier.ai",
+    linkLabel: "retrier.ai",
+  },
+  {
     id: "parasource",
     name: "PARASOURCE.EXE",
     role: "Founder & CEO",
     description:
       "The firm brain for immigration practice: a per-organization knowledge core with multilingual intake (11 languages), a lawyer-gated client responder, and a caseworker assistant. Provides legal information only — never autonomous legal advice.",
-    statusLine: "RUNNING · uptime since Apr 2026",
+    statusLine: "BACKGROUND PROCESS · uptime since Apr 2026",
     href: "https://www.parasource.ai",
     linkLabel: "parasource.ai",
   },

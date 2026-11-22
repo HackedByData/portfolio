@@ -7,7 +7,7 @@ const channels = [
   { label: "EMAIL", value: profile.email, href: `mailto:${profile.email}` },
   { label: "LINKEDIN", value: "linkedin", href: profile.linkedin },
   { label: "GITHUB", value: "hackedbydata", href: profile.github },
-  { label: "PARASOURCE", value: "parasource.ai", href: profile.parasource },
+  { label: "RETRIER", value: "retrier.ai", href: profile.retrier },
 ] as const;
 
 export default function Uplink() {

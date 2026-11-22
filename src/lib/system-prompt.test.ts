@@ -6,6 +6,7 @@ describe("buildSystemPrompt", () => {
 
   it("contains core identity facts", () => {
     expect(prompt).toContain("Devin McCaw");
+    expect(prompt).toContain("Retrier");
     expect(prompt).toContain("Parasource");
     expect(prompt).toContain("UC Irvine");
   });

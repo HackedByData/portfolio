@@ -7,7 +7,7 @@ export default function Modules() {
   return (
     <Reveal as="section" id="modules" className="mx-auto max-w-5xl px-4 py-20">
       <SectionHeader index="03" title="INSTALLED MODULES" />
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {ventures.map((v) => (
           <Panel key={v.id} title={v.name} className="flex flex-col">
             <p className="font-mono text-xs text-signal">{v.role}</p>

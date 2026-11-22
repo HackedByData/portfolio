@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devin McCaw — Founder, Engineer, Salesman-Class Unit",
     description:
-      "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. Interrogate the unit yourself.",
+      "Co-Founder & CEO of Retrier. CS & Engineering @ UC Irvine. Interrogate the unit yourself.",
     url: "/",
     siteName: "Devin McCaw",
     locale: "en_US",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Devin McCaw — Founder, Engineer, Salesman-Class Unit",
     description:
-      "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. Interrogate the unit yourself.",
+      "Co-Founder & CEO of Retrier. CS & Engineering @ UC Irvine. Interrogate the unit yourself.",
   },
   robots: { index: true, follow: true },
 };

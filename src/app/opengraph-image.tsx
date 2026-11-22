@@ -24,7 +24,7 @@ async function loadGoogleFont(family: string, text: string) {
 export default async function Image() {
   const headline = "DEVIN McCAW";
   const sub = "UNIT MCW-2027 · FOUNDER-CLASS";
-  const tag = "Founder & CEO, Parasource · CS&E @ UC Irvine";
+  const tag = "Co-Founder & CEO, Retrier · CS&E @ UC Irvine";
   const domainDisplay = profile.domain.replace(/^https?:\/\//, "");
   const footer = `${domainDisplay} — interrogate the unit`;
 

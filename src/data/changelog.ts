@@ -7,6 +7,13 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    version: "v2026.11",
+    date: "Nov 2026",
+    title: "RETRIER.AI promoted to primary process",
+    detail:
+      "Now working primarily on Retrier as Co-Founder & CEO — AI follow-up that wins back the sales retail reps let walk, starting with franchise wireless stores. Course load trimmed to 14 units for fall quarter; graduation projected as early as Winter 2027.",
+  },
+  {
     version: "v2026.4",
     date: "Apr 2026",
     title: "PARASOURCE.EXE deployed",

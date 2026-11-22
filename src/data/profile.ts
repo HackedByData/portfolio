@@ -5,12 +5,13 @@ export const profile = {
   status: "OPERATIONAL",
   location: "IRVINE, CA",
   tagline:
-    "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. Sold phones at a #1-of-802 clip before pivoting to selling the future.",
+    "Co-Founder & CEO of Retrier. CS & Engineering @ UC Irvine. Sold phones at a #1-of-802 clip — now builds the AI that wins back the sales reps let walk.",
   email: "devin.mccaw@outlook.com",
   linkedin: "https://www.linkedin.com/in/devin-mccaw",
   github: "https://github.com/hackedbydata",
+  retrier: "https://retrier.ai",
   parasource: "https://www.parasource.ai",
   domain: "https://devinmccaw.com",
   ogDescription:
-    "Founder & CEO of Parasource. CS & Engineering @ UC Irvine. AI systems, sales records, and one slightly smug android interface.",
+    "Co-Founder & CEO of Retrier. CS & Engineering @ UC Irvine. AI systems, sales records, and one slightly smug android interface.",
 } as const;

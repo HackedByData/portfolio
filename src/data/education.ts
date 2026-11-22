@@ -9,7 +9,7 @@ export const education: EducationEntry[] = [
   {
     school: "University of California, Irvine",
     credential: "BS, Computer Science & Engineering · Minor in Innovation & Entrepreneurship",
-    period: "2025 – 2027 (expected)",
+    period: "2025 – 2027 · graduation projected as early as Winter 2027",
     details: [
       "GPA 3.846 / 4.0",
       "Dean's Honor List — every quarter to date",
@@ -25,4 +25,4 @@ export const education: EducationEntry[] = [
 ];
 
 export const overclockLine =
-  "CURRENT LOAD: 24 units (summer quarter) — unit is overclocked";
+  "CURRENT LOAD: 14 units (fall quarter) — spare cycles rerouted to Retrier";

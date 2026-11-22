@@ -18,10 +18,10 @@ const jsonLd: WithContext<Person> = {
   name: profile.name,
   url: profile.domain,
   image: `${profile.domain}/images/devin-hero.jpg`,
-  jobTitle: "Founder & CEO, Parasource",
+  jobTitle: "Co-Founder & CEO, Retrier",
   email: `mailto:${profile.email}`,
   alumniOf: "University of California, Irvine",
-  sameAs: [profile.github, profile.linkedin, profile.parasource],
+  sameAs: [profile.github, profile.linkedin, profile.retrier, profile.parasource],
 };
 
 export default function Home() {
