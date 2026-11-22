@@ -46,7 +46,7 @@ export const changelog: ChangelogEntry[] = [
     date: "Aug 2024",
     title: "SALES_ENGINE v2 (Verizon)",
     detail:
-      "Retail sales at Verizon — consistent top performer at 150–200% of revenue quota.",
+      "Retail sales at Verizon — consistent top performer at 150–200% of revenue quota; won a Verizon pitch competition at store and district level.",
   },
   {
     version: "v2023.8",

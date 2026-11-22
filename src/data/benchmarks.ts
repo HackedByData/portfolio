@@ -4,6 +4,8 @@ export type Benchmark = {
   format: (n: number) => string;
   label: string;
   caption: string;
+  /** Span the full grid width (use for an odd card out). */
+  wide?: boolean;
 };
 
 export const benchmarks: Benchmark[] = [
@@ -37,5 +39,14 @@ export const benchmarks: Benchmark[] = [
     label: "ORG GROWTH, ONE QUARTER",
     caption:
       "Grew Triangle Fraternity 350% in one quarter — fastest-growing chapter nationwide.",
+  },
+  {
+    id: "pitch",
+    end: 2,
+    format: (n) => `${n}× WINNER`,
+    label: "VERIZON PITCH COMPETITION",
+    caption:
+      "Won a Verizon pitch competition at both the store and district level.",
+    wide: true,
   },
 ];

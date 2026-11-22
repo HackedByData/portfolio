@@ -42,7 +42,7 @@ export const scriptedResponses: Record<string, string> = {
   pitch:
     "DEVIN McCAW: co-founder & CEO of Retrier (AI follow-up that wins back the sales retail reps let walk). CS & Engineering @ UC Irvine, 3.846 GPA, Dean's List every quarter. Before that: 150–200% of quota at Verizon and a #1-of-802 nationwide store rank at MarketSource. Builds AI systems. Sells them too. Rare combination. The unit recommends acquiring it before a competitor does.",
   hire:
-    "three reasons. (1) ships: builds Retrier himself, and built Parasource end-to-end — Next.js, FastAPI, pgvector RAG, AWS. (2) sells: #1-of-802 store rank, 150–200% quota, +600% team productivity. (3) leads: founded ZotLabs and a 350%-growth fraternity chapter in the same year. hiring managers historically do not regret this.",
+    "three reasons. (1) ships: builds Retrier himself, and built Parasource end-to-end — Next.js, FastAPI, pgvector RAG, AWS. (2) sells: #1-of-802 store rank, 150–200% quota, +600% team productivity, Verizon pitch-competition winner at store and district level. (3) leads: founded ZotLabs and a 350%-growth fraternity chapter in the same year. hiring managers historically do not regret this.",
   retrier:
     "RETRIER.AI — wins back the sales retail reps let walk. reps log a visit in under a minute; opted-in customers get a same-day recap from Ret, the rep's AI assistant, then one offer at a time from the store's own menu. the rep closes and keeps the commission. built for franchise wireless stores; performance-based pricing, now accepting pilots. see retrier.ai.",
 };

@@ -19,6 +19,7 @@ describe("buildSystemPrompt", () => {
   it("contains the sales benchmarks", () => {
     expect(prompt).toContain("802");
     expect(prompt).toContain("150–200%");
+    expect(prompt).toContain("pitch competition");
   });
 
   it("never contains a phone number", () => {

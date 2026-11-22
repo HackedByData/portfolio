@@ -77,7 +77,7 @@ export default function Benchmarks() {
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         {benchmarks.map((b) => (
-          <Panel key={b.id}>
+          <Panel key={b.id} className={b.wide ? "sm:col-span-2" : undefined}>
             <CountUpStat benchmark={b} />
           </Panel>
         ))}
