@@ -58,7 +58,7 @@ export default async function Image() {
           height={420}
           style={{
             objectFit: "cover",
-            objectPosition: "42% 18%",
+            objectPosition: "50% 50%",
             border: "2px solid #00ff9c",
             filter: "saturate(0.65)",
           }}

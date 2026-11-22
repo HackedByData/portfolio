@@ -42,11 +42,11 @@ export default function Hero() {
         <figure className="panel-brackets relative aspect-[4/5] overflow-hidden">
           <Image
             src="/images/devin-hero.jpg"
-            alt="Devin McCaw in a navy blazer at the AILA annual immigration-law conference"
+            alt="Devin McCaw in a blue blazer, speaking on stage to an auditorium audience"
             fill
             priority
             sizes="(min-width: 768px) 380px, 100vw"
-            className="object-cover brightness-95 contrast-105 saturate-[0.65] [object-position:42%_18%]"
+            className="object-cover brightness-95 contrast-105 saturate-[0.65]"
           />
           {/* green duotone wash + scanlines over the photo */}
           <div
